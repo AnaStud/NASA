@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.NASA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/indigo_200</item>
+        <item name="colorPrimaryVariant">@color/indigo_400</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/indigo_100</item>
+        <item name="colorSecondaryVariant">@color/indigo_300</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="bottomAppBarStyle">@style/myBottomAppBarStyleNight</item>
+    </style>
+
+    <style name="myBottomAppBarStyleNight" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="backgroundTint">@color/indigo_400</item>
+    </style>
+
+</resources>
