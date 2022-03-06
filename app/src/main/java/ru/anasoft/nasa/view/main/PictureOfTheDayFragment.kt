@@ -21,6 +21,7 @@ import ru.anasoft.nasa.databinding.FragmentMainBinding
 import ru.anasoft.nasa.utils.URL_WIKI
 import ru.anasoft.nasa.view.BaseFragment
 import ru.anasoft.nasa.view.MainActivity
+import ru.anasoft.nasa.view.settings.SettingsFragment
 import ru.anasoft.nasa.viewmodel.PictureOfTheDayState
 import ru.anasoft.nasa.viewmodel.PictureOfTheDayViewModel
 import java.text.SimpleDateFormat
@@ -149,11 +150,11 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
             R.id.menu_item_add_to_favotites ->
                 Toast.makeText(requireContext(), "Added to favorites", Toast.LENGTH_SHORT).show()
             R.id.menu_item_settings -> {
-//                requireActivity().supportFragmentManager
-//                    .beginTransaction()
-//                    .replace(R.id.container, ChipsFragment.newInstance())
-//                    .addToBackStack("")
-//                    .commit()
+                requireActivity().supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.container, SettingsFragment.newInstance(1))
+                    .addToBackStack("")
+                    .commit()
             }
             R.id.menu_item_search ->
                 Toast.makeText(requireContext(), "Find picture", Toast.LENGTH_SHORT).show()

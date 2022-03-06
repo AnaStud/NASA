@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="90dp">
+
+    <TextView
+        style="@style/settings_text_style"
+        android:text="@string/textSettings" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupTheme"
+        style="@style/settings_text_style" >
+
+        <RadioButton
+            android:id="@+id/radioButtonTheme1"
+            style="@style/settings_text_style"
+            android:text="@string/textSetting1" />
+
+        <RadioButton
+            android:id="@+id/radioButtonTheme2"
+            style="@style/settings_text_style"
+            android:text="@string/textSetting2" />
+
+        <RadioButton
+            android:id="@+id/radioButtonTheme3"
+            style="@style/settings_text_style"
+            android:text="@string/textSetting3" />
+
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonOK"
+        style="@style/settings_button_style"
+        android:layout_gravity="start"
+        android:text="@string/textButtonOk"/>
+
+</LinearLayout>

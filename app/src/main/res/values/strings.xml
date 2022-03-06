@@ -13,4 +13,11 @@
     <string name="today">Today</string>
     <string name="yesterday">Yesterday</string>
     <string name="two_days_ago">Two days ago</string>
+
+    <string name="textSettings">Выберите тему:</string>
+    <string name="textSetting1">Синяя</string>
+    <string name="textSetting2">Зелёная</string>
+    <string name="textSetting3">Красная</string>
+    <string name="textButtonOk">OK</string>
+
 </resources>
