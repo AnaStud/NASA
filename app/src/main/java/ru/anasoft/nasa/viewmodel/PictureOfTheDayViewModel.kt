@@ -19,27 +19,51 @@ class PictureOfTheDayViewModel(
         return  liveData
     }
 
-    fun sendServerRequest(){
+    fun sendServerRequest(date: String = "empty") {
+
         liveData.postValue(PictureOfTheDayState.Loading(50))
-        pictureOfTheDayRetrofitImpl
-            .getRetrofitImpl()
-            .getPictureOfTheDay(BuildConfig.NASA_API_KEY)
-            .enqueue(object : Callback<PictureOfTheDayResponseData> {
-                override fun onResponse(call: Call<PictureOfTheDayResponseData>,
-                                        response: Response<PictureOfTheDayResponseData>) {
-                    if (response.isSuccessful) {
-                        response.body()?.let {
-                            liveData.postValue(PictureOfTheDayState.Success(it))
+
+        if (date.equals("empty")) {
+            pictureOfTheDayRetrofitImpl.getRetrofitImpl()
+                .getPictureOfTheDay(BuildConfig.NASA_API_KEY)
+                .enqueue(object : Callback<PictureOfTheDayResponseData> {
+                    override fun onResponse(call: Call<PictureOfTheDayResponseData>,
+                                            response: Response<PictureOfTheDayResponseData>) {
+                        if (response.isSuccessful) {
+                            response.body()?.let {
+                                liveData.postValue(PictureOfTheDayState.Success(it))
+                            }
+                        }
+                        else{
+                            liveData.value = PictureOfTheDayState.Error(Throwable(response.message()))
                         }
                     }
-                    else{
-                        liveData.value = PictureOfTheDayState.Error(Throwable(response.message()))
-                    }
-                }
 
-                override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable) {
-                    PictureOfTheDayState.Error(t)
-                }
-            })
+                    override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable) {
+                        PictureOfTheDayState.Error(t)
+                    }
+                })
+        }
+        else {
+            pictureOfTheDayRetrofitImpl.getRetrofitImpl()
+                .getPictureOfTheDate(BuildConfig.NASA_API_KEY, date)
+                .enqueue(object : Callback<PictureOfTheDayResponseData> {
+                    override fun onResponse(call: Call<PictureOfTheDayResponseData>,
+                                            response: Response<PictureOfTheDayResponseData>) {
+                        if (response.isSuccessful) {
+                            response.body()?.let {
+                                liveData.postValue(PictureOfTheDayState.Success(it))
+                            }
+                        }
+                        else{
+                            liveData.value = PictureOfTheDayState.Error(Throwable(response.message()))
+                        }
+                    }
+
+                    override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable) {
+                        PictureOfTheDayState.Error(t)
+                    }
+                })
+        }
     }
 }

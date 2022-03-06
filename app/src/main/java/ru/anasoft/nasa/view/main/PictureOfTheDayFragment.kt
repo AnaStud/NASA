@@ -21,9 +21,10 @@ import ru.anasoft.nasa.databinding.FragmentMainBinding
 import ru.anasoft.nasa.utils.URL_WIKI
 import ru.anasoft.nasa.view.BaseFragment
 import ru.anasoft.nasa.view.MainActivity
-import ru.anasoft.nasa.view.chips.ChipsFragment
 import ru.anasoft.nasa.viewmodel.PictureOfTheDayState
 import ru.anasoft.nasa.viewmodel.PictureOfTheDayViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
@@ -48,6 +49,21 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
         initData()
         initButtons()
 
+        binding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
+            when(checkedId){
+                R.id.twoDaysAgo -> { viewModel.sendServerRequest(takeDate(-2)) }
+                R.id.yesterday -> { viewModel.sendServerRequest(takeDate(-1)) }
+                else -> { viewModel.sendServerRequest() }
+            }
+        }
+    }
+
+    private fun takeDate(count: Int): String {
+        val currentDate = Calendar.getInstance()
+        currentDate.add(Calendar.DATE, count)
+        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        simpleDateFormat.timeZone = TimeZone.getTimeZone("EST")
+        return simpleDateFormat.format(currentDate.time)
     }
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
@@ -77,7 +93,7 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
             }
             is PictureOfTheDayState.Error -> {
                 Snackbar.make(binding.main, "Error of loading", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Try again") { viewModel.sendServerRequest() }
+                    .setAction("Try again") { viewModel.sendServerRequest(takeDate(-1)) }
                     .show()
             }
         }
@@ -133,11 +149,11 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
             R.id.menu_item_add_to_favotites ->
                 Toast.makeText(requireContext(), "Added to favorites", Toast.LENGTH_SHORT).show()
             R.id.menu_item_settings -> {
-                requireActivity().supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.container, ChipsFragment.newInstance())
-                    .addToBackStack("")
-                    .commit()
+//                requireActivity().supportFragmentManager
+//                    .beginTransaction()
+//                    .replace(R.id.container, ChipsFragment.newInstance())
+//                    .addToBackStack("")
+//                    .commit()
             }
             R.id.menu_item_search ->
                 Toast.makeText(requireContext(), "Find picture", Toast.LENGTH_SHORT).show()
