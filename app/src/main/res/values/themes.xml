@@ -1,22 +1,43 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.NASA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="MyThemeNASA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/indigo_500</item>
-        <item name="colorPrimaryVariant">@color/indigo_700</item>
+        <item name="colorPrimary">?myColor_500</item>
+        <item name="colorPrimaryVariant">?myColor_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/indigo_400</item>
-        <item name="colorSecondaryVariant">@color/indigo_600</item>
+        <item name="colorSecondary">?myColor_400</item>
+        <item name="colorSecondaryVariant">?myColor_600</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?myColor_700</item>
         <!-- Customize your theme here. -->
         <item name="bottomAppBarStyle">@style/myBottomAppBarStyle</item>
     </style>
 
     <style name="myBottomAppBarStyle" parent="Widget.MaterialComponents.BottomAppBar">
-        <item name="backgroundTint">@color/indigo_700</item>
+        <item name="backgroundTint">?myColor_700</item>
+    </style>
+
+    <style name="MyBlueTheme" parent="MyThemeNASA">
+        <item name="myColor_400">@color/blue_400</item>
+        <item name="myColor_500">@color/blue_500</item>
+        <item name="myColor_600">@color/blue_600</item>
+        <item name="myColor_700">@color/blue_700</item>
+    </style>
+
+    <style name="MyRedTheme" parent="MyThemeNASA">
+        <item name="myColor_400">@color/red_400</item>
+        <item name="myColor_500">@color/red_500</item>
+        <item name="myColor_600">@color/red_600</item>
+        <item name="myColor_700">@color/red_700</item>
+    </style>
+
+    <style name="MyGreenTheme" parent="MyThemeNASA">
+        <item name="myColor_400">@color/green_400</item>
+        <item name="myColor_500">@color/green_500</item>
+        <item name="myColor_600">@color/green_600</item>
+        <item name="myColor_700">@color/green_700</item>
     </style>
 
 </resources>
