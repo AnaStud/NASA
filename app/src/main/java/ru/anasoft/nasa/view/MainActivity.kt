@@ -1,7 +1,11 @@
 package ru.anasoft.nasa.view
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
+import ru.anasoft.nasa.BuildConfig
 import ru.anasoft.nasa.R
 import ru.anasoft.nasa.databinding.ActivityMainBinding
 import ru.anasoft.nasa.utils.KEY_SP_LOCAL
@@ -26,6 +30,11 @@ class MainActivity : AppCompatActivity() {
                 setTheme(R.style.MyBlueTheme)
             }
         }
+
+        if (Build.VERSION.RELEASE.toInt() > 10) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
         binding =  ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

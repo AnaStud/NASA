@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="MyThemeNASA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blue_200</item>
-        <item name="colorPrimaryVariant">@color/blue_400</item>
+        <item name="colorPrimary">?myColor_200</item>
+        <item name="colorPrimaryVariant">?myColor_400</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blue_100</item>
-        <item name="colorSecondaryVariant">@color/blue_300</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">?myColor_100</item>
+        <item name="colorSecondaryVariant">?myColor_300</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
@@ -16,7 +16,28 @@
     </style>
 
     <style name="myBottomAppBarStyleNight" parent="Widget.MaterialComponents.BottomAppBar">
-        <item name="backgroundTint">@color/blue_400</item>
+        <item name="backgroundTint">?myColor_400</item>
+    </style>
+
+    <style name="MyBlueTheme" parent="MyThemeNASA">
+        <item name="myColor_100">@color/blue_100</item>
+        <item name="myColor_200">@color/blue_200</item>
+        <item name="myColor_300">@color/blue_300</item>
+        <item name="myColor_400">@color/blue_400</item>
+    </style>
+
+    <style name="MyRedTheme" parent="MyThemeNASA">
+        <item name="myColor_100">@color/red_100</item>
+        <item name="myColor_200">@color/red_200</item>
+        <item name="myColor_300">@color/red_300</item>
+        <item name="myColor_400">@color/red_400</item>
+    </style>
+
+    <style name="MyGreenTheme" parent="MyThemeNASA">
+        <item name="myColor_100">@color/green_100</item>
+        <item name="myColor_200">@color/green_200</item>
+        <item name="myColor_300">@color/green_300</item>
+        <item name="myColor_400">@color/green_400</item>
     </style>
 
 </resources>
