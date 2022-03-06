@@ -153,7 +153,7 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
             R.id.menu_item_settings -> {
                 requireActivity().supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.container, SettingsFragment.newInstance(themeActivityMain))
+                    .replace(R.id.container, SettingsFragment.newInstance())
                     .addToBackStack("")
                     .commit()
             }
