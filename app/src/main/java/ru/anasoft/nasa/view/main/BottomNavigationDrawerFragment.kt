@@ -1,12 +1,15 @@
 package ru.anasoft.nasa.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import ru.anasoft.nasa.R
 import ru.anasoft.nasa.databinding.BottomNavigationLayoutBinding
 import ru.anasoft.nasa.view.BaseFragment
+import ru.anasoft.nasa.view.navigation.BottomNavigationActivity
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
     private var _binding: BottomNavigationLayoutBinding? = null
@@ -23,4 +26,16 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         _binding = null
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.navigationView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.navigation_one->{
+                    startActivity(Intent(requireContext(), BottomNavigationActivity::class.java))
+                }
+                R.id.navigation_two->{ }
+             }
+            true
+        }
+    }
 }
