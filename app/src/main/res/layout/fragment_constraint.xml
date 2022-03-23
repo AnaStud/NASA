@@ -2,20 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/spaceFlightHeader"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:text="@string/spaceFlightHeader"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineFlags"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -38,14 +38,13 @@
 
     <TextView
         android:id="@+id/spaceFlightCountries"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/spaceFlightCountries"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineFlags"
         app:layout_constraintTop_toTopOf="@+id/guidelineCountriesHeader" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -67,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.82" />
+        app:layout_constraintGuide_percent="0.81" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineChina"
@@ -88,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:src="@drawable/flag_of_sovietunion"
+        android:src="@drawable/flag_of_soviet_union"
         app:layout_constraintStart_toStartOf="@+id/guidelineFlags"
         app:layout_constraintTop_toTopOf="@+id/guidelineSovietUnion" />
 
@@ -162,12 +161,13 @@
         app:layout_constraintStart_toStartOf="@+id/guidelineCountries"
         app:layout_constraintTop_toTopOf="@+id/guidelineChina" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineNames"
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierCountries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="countrySovietUnion, countryRussia, countryUSA, countryChina"
+        tools:layout_editor_absoluteX="143dp" />
 
     <TextView
         android:id="@+id/nameSovietUnion"
@@ -175,7 +175,8 @@
         android:layout_height="wrap_content"
         android:text="@string/nameSovietUnion"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/guidelineNames"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="@+id/barrierCountries"
         app:layout_constraintTop_toTopOf="@+id/guidelineSovietUnion" />
 
     <TextView
@@ -184,7 +185,8 @@
         android:layout_height="wrap_content"
         android:text="@string/nameUSA"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/guidelineNames"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="@+id/barrierCountries"
         app:layout_constraintTop_toTopOf="@+id/guidelineUSA" />
 
     <TextView
@@ -193,7 +195,8 @@
         android:layout_height="wrap_content"
         android:text="@string/nameChina"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/guidelineNames"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="@+id/barrierCountries"
         app:layout_constraintTop_toTopOf="@+id/guidelineChina" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
