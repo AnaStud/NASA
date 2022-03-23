@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_constraint"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/constraint" />
+
+    <item
+        android:id="@+id/bottom_coordinator"
+        android:icon="@drawable/ic_mars"
+        android:title="@string/coordinator" />
+
+</menu>

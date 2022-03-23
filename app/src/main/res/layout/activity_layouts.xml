@@ -1,0 +1,24 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/containerLayouts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?actionBarSize"
+        android:paddingBottom="?actionBarSize"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomLayouts"
+        android:layout_width="match_parent"
+        app:labelVisibilityMode="selected"
+        app:itemHorizontalTranslationEnabled="false"
+        android:layout_gravity="bottom"
+        android:layout_height="?actionBarSize"
+        app:menu="@menu/menu_layouts" />
+
+</FrameLayout>

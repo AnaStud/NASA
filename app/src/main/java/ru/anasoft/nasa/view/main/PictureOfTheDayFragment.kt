@@ -19,7 +19,6 @@ import com.google.android.material.snackbar.Snackbar
 import ru.anasoft.nasa.R
 import ru.anasoft.nasa.databinding.FragmentMainBinding
 import ru.anasoft.nasa.utils.URL_WIKI
-import ru.anasoft.nasa.utils.themeActivityMain
 import ru.anasoft.nasa.view.BaseFragment
 import ru.anasoft.nasa.view.MainActivity
 import ru.anasoft.nasa.view.settings.SettingsFragment

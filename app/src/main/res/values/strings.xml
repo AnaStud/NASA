@@ -22,5 +22,7 @@
     <string name="earth">Земля</string>
     <string name="mars">Марс</string>
     <string name="system">Солнечная система</string>
+    <string name="constraint">Constraint</string>
+    <string name="coordinator">Coordinator</string>
 
 </resources>
