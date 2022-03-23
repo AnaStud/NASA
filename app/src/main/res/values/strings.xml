@@ -22,7 +22,21 @@
     <string name="earth">Земля</string>
     <string name="mars">Марс</string>
     <string name="system">Солнечная система</string>
+
     <string name="constraint">Constraint</string>
     <string name="coordinator">Coordinator</string>
+    <string name="spaceFlightHeader">Пилотируемый космический полёт</string>
+    <string name="spaceFlightText">Путешествие человека в космос, на орбиту Земли и за её пределы, выполняемое с помощью пилотируемых космических аппаратов.
+        Страны, способные проводить космические полёты на собственных космических кораблях, запускаемых собственными ракетами-носителями, иногда именуют космическими сверхдержавами.
+        Способности выполнять пилотируемые космические полёты предшествует способность страны, как космической державы, выполнять запуски на собственных ракетах-носителях собственных спутников.
+        Ввиду требования намного больших экономических и интеллектуальных затрат и ресурсов число космических сверхдержав намного меньше, чем космических держав.</string>
+    <string name="spaceFlightCountries">Страны</string>
+    <string name="countrySovietUnion">СССР</string>
+    <string name="countryRussia">Россия</string>
+    <string name="countryUSA">США</string>
+    <string name="countryChina">Китай</string>
+    <string name="nameSovietUnion">Юрий Гагарин</string>
+    <string name="nameUSA">Джон Гленн</string>
+    <string name="nameChina">Ян Ливэй</string>
 
 </resources>

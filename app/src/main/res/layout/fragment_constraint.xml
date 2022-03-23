@@ -5,10 +5,195 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <TextView
+        android:id="@+id/spaceFlightHeader"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/bg_earth"
-        android:contentDescription="@string/earth" />
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="@string/spaceFlightHeader"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/spaceFlightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/spaceFlightText"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spaceFlightHeader" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineCountriesHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <TextView
+        android:id="@+id/spaceFlightCountries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/spaceFlightCountries"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineCountriesHeader" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineSovietUnion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRussia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineUSA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineChina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineFlags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <ImageView
+        android:id="@+id/flagOfSovietUnion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/flag_of_sovietunion"
+        app:layout_constraintStart_toStartOf="@+id/guidelineFlags"
+        app:layout_constraintTop_toTopOf="@+id/guidelineSovietUnion" />
+
+    <ImageView
+        android:id="@+id/flagOfRussia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/flag_of_russia"
+        app:layout_constraintStart_toStartOf="@+id/guidelineFlags"
+        app:layout_constraintTop_toTopOf="@+id/guidelineRussia" />
+
+    <ImageView
+        android:id="@+id/flagOfUSA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/flag_of_usa"
+        app:layout_constraintStart_toStartOf="@+id/guidelineFlags"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUSA" />
+
+    <ImageView
+        android:id="@+id/flagOfChina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/flag_of_china"
+        app:layout_constraintStart_toStartOf="@+id/guidelineFlags"
+        app:layout_constraintTop_toTopOf="@+id/guidelineChina" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineCountries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <TextView
+        android:id="@+id/countrySovietUnion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/countrySovietUnion"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineCountries"
+        app:layout_constraintTop_toTopOf="@+id/guidelineSovietUnion" />
+
+    <TextView
+        android:id="@+id/countryUSA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/countryUSA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineCountries"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUSA" />
+
+    <TextView
+        android:id="@+id/countryRussia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/countryRussia"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineCountries"
+        app:layout_constraintTop_toTopOf="@+id/guidelineRussia" />
+
+    <TextView
+        android:id="@+id/countryChina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/countryChina"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineCountries"
+        app:layout_constraintTop_toTopOf="@+id/guidelineChina" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineNames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <TextView
+        android:id="@+id/nameSovietUnion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nameSovietUnion"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineNames"
+        app:layout_constraintTop_toTopOf="@+id/guidelineSovietUnion" />
+
+    <TextView
+        android:id="@+id/nameUSA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nameUSA"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineNames"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUSA" />
+
+    <TextView
+        android:id="@+id/nameChina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nameChina"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineNames"
+        app:layout_constraintTop_toTopOf="@+id/guidelineChina" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
