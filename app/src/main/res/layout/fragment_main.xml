@@ -22,7 +22,6 @@
             app:endIconDrawable="@drawable/ic_wikipedia"
             app:endIconMode="custom"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/chipGroup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:startIconContentDescription="@string/imageDesc"
@@ -41,7 +40,6 @@
             android:orientation="horizontal"
             app:singleSelection="true"
             app:layout_constraintTop_toBottomOf="@+id/inputLayout"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" >
 
@@ -82,13 +80,15 @@
 
         <ImageView
             android:id="@+id/imageViewLoading"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
             android:layout_gravity="center"
-            app:layout_constraintStart_toStartOf="@id/imageView"
-            app:layout_constraintTop_toTopOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="@id/imageView"
-            app:layout_constraintBottom_toBottomOf="@id/imageView"
+            android:scaleType="centerInside"
+            android:padding="150dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:srcCompat="@drawable/loading_progress" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

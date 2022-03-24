@@ -4,15 +4,15 @@ import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.view.*
+import android.view.animation.AnticipateOvershootInterpolator
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.*
 import coil.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -41,6 +41,8 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
 
+    private var isExpanded = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -58,6 +60,24 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
                 else -> { viewModel.sendServerRequest() }
             }
         }
+
+        binding.imageView.setOnClickListener {
+            isExpanded = !isExpanded
+            TransitionManager.beginDelayedTransition(
+                binding.main, TransitionSet()
+                    .addTransition(ChangeBounds())
+                    .addTransition(ChangeImageTransform())
+            )
+            val params: ViewGroup.LayoutParams = binding.imageView.layoutParams
+            params.height =
+                if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT
+                else ViewGroup.LayoutParams.WRAP_CONTENT
+            binding.imageView.layoutParams = params
+            binding.imageView.scaleType =
+                if (isExpanded) ImageView.ScaleType.CENTER_CROP
+                else ImageView.ScaleType.FIT_CENTER
+        }
+
     }
 
     private fun takeDate(count: Int): String {
@@ -83,11 +103,19 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
         when (pictureOfTheDayState) {
             is PictureOfTheDayState.Loading -> {
                 binding.imageViewLoading.isVisible = true
+                val fade = Fade()
+                fade.duration= 1000L
+                TransitionManager.beginDelayedTransition(binding.main, fade)
+                binding.imageView.isVisible = false
             }
             is PictureOfTheDayState.Success -> {
                 with(pictureOfTheDayState.serverResponseData) {
                     binding.imageViewLoading.isVisible = false
-                    //binding.imageView.isVisible = true
+                    val fade = Fade()
+                    fade.duration= 2000L
+                    TransitionManager.beginDelayedTransition(binding.main, fade)
+                    binding.imageView.isVisible = true
+
                     binding.also {
                         it.imageView.load(hdurl)
                         it.included.bottomSheetDescriptionHeader.text = title
