@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -81,10 +82,12 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
     private fun renderData(pictureOfTheDayState: PictureOfTheDayState) {
         when (pictureOfTheDayState) {
             is PictureOfTheDayState.Loading -> {
-                Toast.makeText(requireContext(), "Loading...", Toast.LENGTH_SHORT).show()
+                binding.imageViewLoading.isVisible = true
             }
             is PictureOfTheDayState.Success -> {
                 with(pictureOfTheDayState.serverResponseData) {
+                    binding.imageViewLoading.isVisible = false
+                    //binding.imageView.isVisible = true
                     binding.also {
                         it.imageView.load(hdurl)
                         it.included.bottomSheetDescriptionHeader.text = title

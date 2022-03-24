@@ -21,7 +21,7 @@ class PictureOfTheDayViewModel(
 
     fun sendServerRequest(date: String = "empty") {
 
-        liveData.postValue(PictureOfTheDayState.Loading(50))
+        liveData.postValue(PictureOfTheDayState.Loading())
 
         if (date.equals("empty")) {
             pictureOfTheDayRetrofitImpl.getRetrofitImpl()
