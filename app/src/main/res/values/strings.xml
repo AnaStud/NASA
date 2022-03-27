@@ -78,7 +78,7 @@
 
     <string name="header">Список дел</string>
     <string name="event">Мероприятие</string>
-    <string name="eventDescription">Описание мероприятия, участники, расписание и т.п.</string>
+    <string name="eventDescription">Описание мероприятия, участники, расписание и т.п. Описание мероприятия, участники, расписание и т.п.</string>
     <string name="note">Заметка</string>
-    <string name="noteDescription">Содержание заметки</string>
+    <string name="noteDescription">Содержание заметки Содержание заметки Содержание заметки Содержание заметки Содержание заметки</string>
 </resources>

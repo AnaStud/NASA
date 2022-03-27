@@ -39,16 +39,15 @@ class RecyclerActivity : AppCompatActivity() {
     private fun initRecyclerView() {
 
         val data = arrayListOf(
-            Data(getString(R.string.event), getString(R.string.eventDescription), TYPE_EVENT),
-            Data(getString(R.string.event), getString(R.string.eventDescription), TYPE_EVENT),
-            Data(getString(R.string.event), getString(R.string.eventDescription), TYPE_EVENT),
-            Data(getString(R.string.note), getString(R.string.noteDescription), TYPE_NOTE),
-            Data(getString(R.string.note), getString(R.string.noteDescription), TYPE_NOTE),
-            Data(getString(R.string.note), getString(R.string.noteDescription), TYPE_NOTE),
-            Data(getString(R.string.note), getString(R.string.noteDescription), TYPE_NOTE)
+            Pair(Data(getString(R.string.event), getString(R.string.eventDescription), TYPE_EVENT), false),
+            Pair(Data(getString(R.string.event), getString(R.string.eventDescription), TYPE_EVENT), false),
+            Pair(Data(getString(R.string.event), getString(R.string.eventDescription), TYPE_EVENT), false),
+            Pair(Data(getString(R.string.note), getString(R.string.noteDescription), TYPE_NOTE), false),
+            Pair(Data(getString(R.string.note), getString(R.string.noteDescription), TYPE_NOTE), false),
+            Pair(Data(getString(R.string.note), getString(R.string.noteDescription), TYPE_NOTE), false),
         )
         data.shuffle()
-        data.add(0, Data(getString(R.string.header), type = TYPE_HEADER))
+        data.add(0, Pair(Data(getString(R.string.header), type = TYPE_HEADER), false))
 
         val adapter = RecyclerActivityAdapter(object : OnClickItemListener {
             override fun onItemClick(data: Data) {
