@@ -48,6 +48,8 @@ class RecyclerActivity : AppCompatActivity() {
             Data(getString(R.string.note), getString(R.string.noteDescription), TYPE_NOTE)
         )
         data.shuffle()
+        data.add(0, Data(getString(R.string.header), type = TYPE_HEADER))
+
         val adapter = RecyclerActivityAdapter(object : OnClickItemListener {
             override fun onItemClick(data: Data) {
                 Toast.makeText(baseContext, data.name, Toast.LENGTH_SHORT).show()
