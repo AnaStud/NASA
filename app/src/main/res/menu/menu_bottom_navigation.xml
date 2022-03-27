@@ -10,6 +10,10 @@
             android:id="@+id/navigation_homework4"
             android:icon="@drawable/ic_archive"
             android:title="Homework 4 (Constraint, Coordinator)" />
+        <item
+            android:id="@+id/navigation_homework6"
+            android:icon="@drawable/ic_archive"
+            android:title="Homework 6 (RecyclerView)" />
     </group>
 
 </menu>

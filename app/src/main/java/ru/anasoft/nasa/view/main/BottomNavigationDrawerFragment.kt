@@ -10,6 +10,7 @@ import ru.anasoft.nasa.R
 import ru.anasoft.nasa.databinding.BottomNavigationLayoutBinding
 import ru.anasoft.nasa.view.layouts.LayoutActivity
 import ru.anasoft.nasa.view.navigation.BottomNavigationActivity
+import ru.anasoft.nasa.view.recycler.RecyclerActivity
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
     private var _binding: BottomNavigationLayoutBinding? = null
@@ -36,6 +37,10 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.navigation_homework4->{
                     startActivity(Intent(requireContext(), LayoutActivity::class.java))
+                    dismiss()
+                }
+                R.id.navigation_homework6->{
+                    startActivity(Intent(requireContext(), RecyclerActivity::class.java))
                     dismiss()
                 }
              }
