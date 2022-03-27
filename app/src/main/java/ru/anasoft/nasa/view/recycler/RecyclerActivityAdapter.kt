@@ -10,9 +10,9 @@ import ru.anasoft.nasa.databinding.ActivityRecyclerItemNoteBinding
 
 class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):RecyclerView.Adapter<RecyclerActivityAdapter.BaseViewHolder>() {
 
-    private lateinit var listData: List<Data>
+    private lateinit var listData: MutableList<Data>
 
-    fun setData(listData:List<Data>){
+    fun setData(listData:MutableList<Data>){
         this.listData = listData
     }
 
@@ -44,6 +44,14 @@ class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):Recyc
                 imageViewItem.setOnClickListener {
                     onClickItemListener.onItemClick(data)
                 }
+                addItem.setOnClickListener {
+                    listData.add(layoutPosition + 1, Data("New event", "Description event", TYPE_EVENT))
+                    notifyItemInserted(layoutPosition + 1)
+                }
+                removeItem.setOnClickListener {
+                    listData.removeAt(layoutPosition)
+                    notifyItemRemoved(layoutPosition)
+                }
             }
         }
     }
@@ -55,6 +63,14 @@ class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):Recyc
                 textViewDescription.text = data.description
                 imageViewItem.setOnClickListener {
                     onClickItemListener.onItemClick(data)
+                }
+                addItem.setOnClickListener {
+                    listData.add(layoutPosition + 1, Data("New note", "Description note", TYPE_NOTE))
+                    notifyItemInserted(layoutPosition + 1)
+                }
+                removeItem.setOnClickListener {
+                    listData.removeAt(layoutPosition)
+                    notifyItemRemoved(layoutPosition)
                 }
             }
         }
