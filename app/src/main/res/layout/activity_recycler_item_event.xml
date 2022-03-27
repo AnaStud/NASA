@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@id/textViewName"
         app:layout_constraintBottom_toBottomOf="@id/imageViewItem"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text = "Описание мероприятия, участники, расписание и т.п. "
+        tools:text = "Описание мероприятия, участники, расписание и т.п."
         android:maxLines="3" />
 
     <View
