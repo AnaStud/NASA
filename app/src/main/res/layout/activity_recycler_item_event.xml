@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/addItem"
@@ -31,6 +30,29 @@
         app:srcCompat="@drawable/ic_archive" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/moveItemUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="?myColor_700"
+        app:layout_constraintBottom_toBottomOf="@id/textViewName"
+        app:layout_constraintEnd_toStartOf="@id/moveItemDown"
+        app:layout_constraintStart_toEndOf="@id/textViewName"
+        app:layout_constraintTop_toTopOf="@id/textViewName"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/moveItemDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="?myColor_700"
+        app:layout_constraintBottom_toBottomOf="@id/textViewName"
+        app:layout_constraintTop_toTopOf="@id/textViewName"
+        app:layout_constraintStart_toEndOf="@id/moveItemUp"
+        app:layout_constraintEnd_toStartOf="@id/addItem"
+        app:srcCompat="@android:drawable/arrow_down_float"
+        tools:layout_editor_absoluteX="317dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageViewItem"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -46,7 +68,6 @@
         android:maxLines="1"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/addItem"
         app:layout_constraintStart_toEndOf="@id/imageViewItem"
         app:layout_constraintTop_toTopOf="@id/imageViewItem"
         tools:text="Название" />

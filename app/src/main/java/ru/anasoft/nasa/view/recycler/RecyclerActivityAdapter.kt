@@ -52,6 +52,22 @@ class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):Recyc
                     listData.removeAt(layoutPosition)
                     notifyItemRemoved(layoutPosition)
                 }
+                moveItemUp.setOnClickListener {
+                    if (layoutPosition > 1) {
+                        listData.removeAt(layoutPosition).apply {
+                            listData.add(layoutPosition - 1, this)
+                        }
+                        notifyItemMoved(layoutPosition, layoutPosition - 1)
+                    }
+                }
+                moveItemDown.setOnClickListener {
+                    if (layoutPosition < (listData.size - 1)) {
+                        listData.removeAt(layoutPosition).apply {
+                            listData.add(layoutPosition + 1, this)
+                        }
+                        notifyItemMoved(layoutPosition, layoutPosition + 1)
+                    }
+                }
             }
         }
     }
@@ -71,6 +87,22 @@ class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):Recyc
                 removeItem.setOnClickListener {
                     listData.removeAt(layoutPosition)
                     notifyItemRemoved(layoutPosition)
+                }
+                moveItemUp.setOnClickListener {
+                    if (layoutPosition > 1) {
+                        listData.removeAt(layoutPosition).apply {
+                            listData.add(layoutPosition - 1, this)
+                        }
+                        notifyItemMoved(layoutPosition, layoutPosition - 1)
+                    }
+                }
+                moveItemDown.setOnClickListener {
+                    if (layoutPosition < (listData.size - 1)) {
+                        listData.removeAt(layoutPosition).apply {
+                            listData.add(layoutPosition + 1, this)
+                        }
+                        notifyItemMoved(layoutPosition, layoutPosition + 1)
+                    }
                 }
             }
         }
