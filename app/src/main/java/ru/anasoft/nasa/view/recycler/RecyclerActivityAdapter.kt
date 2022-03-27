@@ -1,5 +1,6 @@
 package ru.anasoft.nasa.view.recycler
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import ru.anasoft.nasa.databinding.ActivityRecyclerItemEventBinding
 import ru.anasoft.nasa.databinding.ActivityRecyclerItemHeaderBinding
 import ru.anasoft.nasa.databinding.ActivityRecyclerItemNoteBinding
 
-class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):RecyclerView.Adapter<RecyclerActivityAdapter.BaseViewHolder>() {
+class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):RecyclerView.Adapter<RecyclerActivityAdapter.BaseViewHolder>(),ItemTouchHelperAdapter {
 
     private lateinit var listData: MutableList<Pair<Data, Boolean>>
 
@@ -36,7 +37,7 @@ class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):Recyc
     }
 
 
-    inner class EventViewHolder(view:View):BaseViewHolder(view){
+    inner class EventViewHolder(view:View):BaseViewHolder(view),ItemTouchHelperViewHolder {
         override fun bind(data: Pair<Data, Boolean>){
             ActivityRecyclerItemEventBinding.bind(itemView).apply {
                 textViewName.text = data.first.name
@@ -79,9 +80,18 @@ class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):Recyc
                 }
             }
         }
+
+        override fun onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
+        }
+
     }
 
-    inner class NoteViewHolder(view:View):BaseViewHolder(view){
+    inner class NoteViewHolder(view:View):BaseViewHolder(view),ItemTouchHelperViewHolder {
         override fun bind(data: Pair<Data, Boolean>){
             ActivityRecyclerItemNoteBinding.bind(itemView).apply {
                 textViewName.text = data.first.name
@@ -124,6 +134,15 @@ class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):Recyc
                 }
             }
         }
+
+        override fun onItemSelected() {
+            itemView.setBackgroundColor(Color.LTGRAY)
+        }
+
+        override fun onItemClear() {
+            itemView.setBackgroundColor(0)
+        }
+
     }
 
     inner class HeaderViewHolder(view:View):BaseViewHolder(view){
@@ -147,4 +166,18 @@ class RecyclerActivityAdapter(val onClickItemListener:OnClickItemListener):Recyc
 
     override fun getItemCount() = listData.size
 
+    override fun onItemMove(fromPosition: Int, toPosition: Int) {
+        listData.removeAt(fromPosition).apply {
+            listData.add(toPosition, this)
+        }
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemDismiss(position: Int) {
+        listData.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
 }
+
+

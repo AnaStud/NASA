@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.recyclerview.widget.ItemTouchHelper
 import ru.anasoft.nasa.R
 import ru.anasoft.nasa.databinding.ActivityRecyclerBinding
 import ru.anasoft.nasa.utils.themeActivityMain
@@ -56,6 +57,8 @@ class RecyclerActivity : AppCompatActivity() {
         })
         adapter.setData(data)
         binding.recyclerView.adapter = adapter
+
+        ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(binding.recyclerView)
     }
 }
 
