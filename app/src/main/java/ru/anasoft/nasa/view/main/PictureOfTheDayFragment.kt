@@ -1,6 +1,7 @@
 package ru.anasoft.nasa.view.main
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -120,6 +121,12 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
                         it.imageView.load(hdurl)
                         it.included.bottomSheetDescriptionHeader.text = title
                         it.included.bottomSheetDescription.text = explanation
+                        it.included.bottomSheetDescription.typeface = Typeface.createFromAsset(
+                            requireActivity().assets,
+                            "fonts/Nautilus.otf"
+                        )
+
+
                     }
                 }
             }
