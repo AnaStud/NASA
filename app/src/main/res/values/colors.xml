@@ -50,4 +50,12 @@
     <color name="green_800">#00695c</color>
     <color name="green_900">#004d40</color>
 
+    <color name="rainbow_red">#f44336</color>
+    <color name="rainbow_orange">#ff5722</color>
+    <color name="rainbow_yellow">#ffeb3b</color>
+    <color name="rainbow_green">#4caf50</color>
+    <color name="rainbow_light_blue">#03a9f4</color>
+    <color name="rainbow_blue">#1565c0</color>
+    <color name="rainbow_purple">#9c27b0</color>
+
 </resources>

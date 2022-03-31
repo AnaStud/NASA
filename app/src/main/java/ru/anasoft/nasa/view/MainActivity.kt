@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        if (Build.VERSION.RELEASE.toInt() > 10) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
+//        if (Build.VERSION.RELEASE.toInt() > 10) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//        }
 
         binding =  ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

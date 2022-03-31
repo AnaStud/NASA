@@ -27,9 +27,9 @@ class RecyclerActivity : AppCompatActivity() {
             }
         }
 
-        if (Build.VERSION.RELEASE.toInt() > 10) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }
+//        if (Build.VERSION.RELEASE.toInt() > 10) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//        }
 
         binding = ActivityRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)
