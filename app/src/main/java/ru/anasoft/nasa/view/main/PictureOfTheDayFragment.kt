@@ -1,13 +1,19 @@
 package ru.anasoft.nasa.view.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.BlurMaskFilter
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.*
 import android.view.*
-import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -126,7 +132,7 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
                             "fonts/Nautilus.otf"
                         )
 
-
+                        addSpansToText()
                     }
                 }
             }
@@ -135,6 +141,79 @@ class PictureOfTheDayFragment : BaseFragment<FragmentMainBinding>(FragmentMainBi
                     .setAction("Try again") { viewModel.sendServerRequest(takeDate(-1)) }
                     .show()
             }
+        }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private fun addSpansToText() {
+
+        var spannableString = SpannableString(binding.included.bottomSheetDescription.text)
+        binding.included.bottomSheetDescription.setText(spannableString, TextView.BufferType.SPANNABLE)
+        spannableString = binding.included.bottomSheetDescription.text as SpannableString
+        val spannableStringSize = spannableString.length
+        val partOfText = spannableStringSize/10
+
+        spannableString.setSpan(
+            BackgroundColorSpan(ContextCompat.getColor(requireContext(), R.color.red_700)),
+            0,
+            partOfText,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            ScaleXSpan(1.5f),
+            partOfText,
+            2 * partOfText,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            RelativeSizeSpan(0.7f),
+            2 * partOfText,
+            3 * partOfText,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            UnderlineSpan(),
+            3 * partOfText,
+            4 * partOfText,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            StyleSpan(Typeface.BOLD),
+            4 * partOfText,
+            5 * partOfText,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            StrikethroughSpan(),
+            5 * partOfText,
+            6 * partOfText,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            MaskFilterSpan(BlurMaskFilter(5f, BlurMaskFilter.Blur.SOLID)),
+            6 * partOfText,
+            7 * partOfText,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            SubscriptSpan(),
+            7 * partOfText,
+            8 * partOfText,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        spannableString.setSpan(
+            ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.green_500)),
+            8 * partOfText,
+            spannableStringSize,
+            SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            spannableString.setSpan(
+                LineHeightSpan.Standard(70),
+                0,
+                spannableStringSize,
+                SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
         }
     }
 
